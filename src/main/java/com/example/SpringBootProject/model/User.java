@@ -1,56 +1,23 @@
 package com.example.SpringBootProject.model;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name = "user_data")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String name;
-    private String lastName;
-    private int age;
+    private @Getter @Setter Long id;
+    private @Getter @Setter String name;
+    private @Getter @Setter String lastName;
+    private @Getter @Setter int age;
 
-    public User(Long id, String name, String lastName, int age) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
-    }
-
-    public User() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
