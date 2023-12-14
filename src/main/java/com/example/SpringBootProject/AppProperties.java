@@ -18,12 +18,12 @@ public class AppProperties {
 
     @Bean
     @Profile("prod")
-    String getProdEnviroment(){
+    public String getProdEnviroment(){
         return "prod";
     }
     @Bean
     @Profile("dev")
-    String getDevEnviroment(){
+    public String getDevEnviroment(){
         return "dev";
     }
 

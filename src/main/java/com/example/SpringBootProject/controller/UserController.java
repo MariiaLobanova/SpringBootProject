@@ -3,7 +3,6 @@ package com.example.SpringBootProject.controller;
 import com.example.SpringBootProject.model.User;
 import com.example.SpringBootProject.service.UserService;
 
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +29,17 @@ public class UserController {
     public User createUser(@RequestBody User student) {
         return userService.createUser(student);
     }
+
+    @PostMapping("/updateEmail/{id}")
+    public Optional<User> updateEmailById(@PathVariable Long id, @RequestBody String email){
+        return userService.updateEmailById(id, email);
+    }
+
+    @DeleteMapping("/deleteEmail/{id}")
+    public void deliteUser( @PathVariable Long id){
+        userService.deleteUser(id);
+    }
+
 
 
 }
